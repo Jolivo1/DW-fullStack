@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/CARRO/inventario.html">Agregar Inventario</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/CARRO/productos.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+                 <a href="detalleCarrito.html"><i class="bi bi-cart3"></i> Carrito<span id="total">[0]</span></a>
+            </span>
+          </div>
+        </div>
+      </nav>
+    <div class="container pt-5">
+        <div class="row g-3">
+            <div class="col-md-6">
+              <label  class="form-label">ID</label>
+              <input type="text" class="form-control" id="id">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Descripcion</label>
+              <input type="text" class="form-control" id="descripcion">
+            </div>
+            <div class="col-6">
+              <label class="form-label">Precio</label>
+              <input type="text" class="form-control" id="precio">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Foto</label>
+              <input type="text" class="form-control" id="foto">
+            </div>
+            <div class="col-12">
+              <button id="agregarInventario" class="btn btn-primary">Agregar Inventario</button>
+            </div>
+        </div>
+    </div>
+
+      <div class="row" id="productos">
+
+			 
+    </div>
+    <a href="/CARRO/total_inventarios.html">Mirar el total</a>
+   <script src="Productos.js"></script>
+  </body>
+</html>
