@@ -1,0 +1,19 @@
+<h3>LISTADO DE PRODUCTOS</h3>
+<table class="table">
+    <tr>
+        <th>NOMBRE</th>
+        <th>PRECIO</th>
+        <th>DESCRIPCION</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {{#each contenido}}
+        <tr>
+            <td>{{PRO_NOMBRE}}</td>
+            <td>{{PRO_PRECIO}}</td>
+            <td>{{PRO_DESCRIPCION}}</td>
+            <td><a href="/actualizarRegistro/{{PRO_ID}}">Editar</a></td>
+            <td><a href="/eliminar/{{PRO_ID}}">Eliminar</a></td>
+        </tr>
+    {{/each}}  
+</table>

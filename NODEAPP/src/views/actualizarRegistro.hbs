@@ -1,0 +1,12 @@
+<h2>ACTUALIZAR PRODUCTO</h2>
+ {{#each contenido}}
+<form action="/actualizarRegistro/{{PRO_ID}}" method="post">
+
+    <input type="text" name="nombre" value={{PRO_NOMBRE}} placeholder="Digite nombre"><br>
+    <input type="text" name="precio" value={{PRO_PRECIO}} placeholder="Digite precio"><br>
+    <textarea name="descripcion">{{PRO_DESCRIPCION}}</textarea><br>
+    <input type="submit" name="aceptar" value="Registrar">
+  
+</form>
+
+{{/each}} 
