@@ -1,0 +1,44 @@
+
+<div class="row">
+    <div class="col-12">
+         {{#each contenido}}
+            <form class="row g-3" method="post" action="/actualizar/{{EST_ID}}">
+                <div class="col-12 ">
+                    <a class="text-decoration-none text-black" href="/"><i class="fa-solid fa-left-long"></i> Back</a>
+                </div>
+                <div class="col-md-12">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{EST_NOMBRE}}"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="pApellido" class="form-label">Primer Apellido</label>
+                    <input type="text" class="form-control" id="pApellido" name="pApellido" value="{{EST_PRIMER_APELLIDO}}"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="sApellido" class="form-label">Segundo Apellido</label>
+                    <input type="text" class="form-control" id="sApellido" name="sApellido" value="{{EST_SEGUNDO_APELLIDO}}"/>
+                </div>
+                <div class="col-md-4">
+                    <label for="fNacimiento" class="form-label">Fecha Naciminiento</label>
+                    <input type="date" class="form-control" id="fNacimiento" name="fNacimiento" value="{{dateFormat EST_FECHA "YYYY-MM-DD"}}"/>
+                </div>
+                <div class="col-md-8">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" value="{{EST_CORREO}}"/>  
+                </div>
+                <div class="col-md-6">
+                    <label for="codigo" class="form-label">Codigo</label>
+                    <input type="text" class="form-control" id="codigo" name="codigo" value="{{EST_CODIGO}}"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" value="{{EST_TELEFONO}}"/>
+                </div>
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
+        {{/each}} 
+    </div>
+</div>
+
