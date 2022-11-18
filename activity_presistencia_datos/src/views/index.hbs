@@ -1,0 +1,43 @@
+<div class="row">
+<div class="col-12 mb-3 d-flex justify-content-between">
+   <div>
+      <form class="d-flex" method="post" action="/filtrar">
+        <input type="text" class="form-control me-3" id="nombre" name="filtro" />
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+      </form>
+   </div>
+   <a class="text-decoration-none bg-primary text-white p-2 rounded" href="/registrar/">Nuevo Estudinte</a>
+
+</div>
+<div class="col-12">
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      
+      <th class="text-center" scope="col">Nombre</th>
+      <th class="text-center" scope="col">Apellido</th>
+      <th class="text-center" scope="col">Codigo</th>
+      <th class="text-center" scope="col">Correo</th>
+      <th class="text-center" scope="col">Telefono</th>
+      <th class="text-center" scope="col">Fecha-Nacimiento</th>
+      <th class="text-center" scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {{#each contenido}}
+        <tr>
+            <td class="text-center">{{EST_NOMBRE}}</td>
+            <td class="text-center">{{EST_PRIMER_APELLIDO}}</td>
+            <td class="text-center">{{EST_CODIGO}}</td>
+            <td class="text-center">{{EST_CORREO}}</td>
+            <td class="text-center">{{EST_TELEFONO}}</td>
+            <td class="text-center">{{dateFormat EST_FECHA "DD/MMM/Y"}}</td>
+            <td class="text-center"><a href="/actualizar/{{EST_ID}}" class="text-decoration-none text-warning"><i class="fa-solid fa-pen-to-square"></i>Editar</a> / <a href="/eliminar/{{EST_ID}}" class="text-decoration-none text-danger"> <i class="fa-solid fa-trash"></i>Eliminar</a></td>
+        </tr>
+    {{/each}}  
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
