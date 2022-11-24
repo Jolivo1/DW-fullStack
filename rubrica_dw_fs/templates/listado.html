@@ -1,0 +1,37 @@
+{% extends 'layout.html'%}
+{% block body %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Codigo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Fecha Nacimiento</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+    {%for estudiante in estudiantes %}
+      <tr>
+        <td>{{estudiante.1}}</td>
+        <td>{{estudiante.3}}</td>
+        <td>{{estudiante.4}}</td>
+        <td>{{estudiante.5}}</td>
+        <td>{{estudiante.6}}</td>
+        <td><a href="/editar/{{estudiante.0}}">editar</a> <a href="/eliminar/{{estudiante.0}}">Eliminar</a></td>
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  {% with mensajes = get_flashed_messages() %}
+  {% if mensajes %}
+      {% for mensaje in mensajes %}
+          <p>{{mensaje}}</p>
+      {% endfor %}
+  {% endif %}
+  {% endwith %}
+{% endblock %}

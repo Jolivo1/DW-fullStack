@@ -1,0 +1,32 @@
+{% extends 'layout.html'%}
+{% block body %}
+
+    <h3>Registro</h3>
+
+    <form action="/editar/{{estudiante.0}}" method="POST">
+
+        <label for="">Nombre</label>
+        <input type="text" name="nombre"  value="{{estudiante.1}}">
+        <label for="">Primer Apellido</label>
+        <input type="text" name="pApellido"  value="{{estudiante.2}}">
+        <label for="">Segundo Apellido</label>
+        <input type="text" name="sApellido"  value="{{estudiante.3}}">
+        <label for="">Codigo</label>
+        <input type="text" name="codigo"  value="{{estudiante.4}}">
+        <label for="">Telefono</label>
+        <input type="text" name="telefono"  value="{{estudiante.5}}">
+        <label for="">Fecha de Nacimiento</label>
+        <input type="date" name="fechaNac" value="{{estudiante.6}}">
+
+        <input type="submit" name="aceptar" value="Editar">
+    </form>
+
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes %}
+            {% for mensaje in mensajes %}
+                <p>{{mensaje}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}

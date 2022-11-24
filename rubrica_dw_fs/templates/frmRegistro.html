@@ -1,0 +1,32 @@
+{% extends 'layout.html'%}
+{% block body %}
+
+    <h3>Registro</h3>
+
+    <form action="/crear" method="POST">
+
+        <label for="">Nombre</label>
+        <input type="text" name="nombre" >
+        <label for="">Primer Apellido</label>
+        <input type="text" name="pApellido" >
+        <label for="">Segundo Apellido</label>
+        <input type="text" name="sApellido" >
+        <label for="">Codigo</label>
+        <input type="text" name="codigo" >
+        <label for="">Telefono</label>
+        <input type="text" name="telefono" >
+        <label for="">Fecha de Nacimiento</label>
+        <input type="date" name="fechaNac">
+
+        <input type="submit" name="aceptar" value="Registrar">
+    </form>
+
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes %}
+            {% for mensaje in mensajes %}
+                <p>{{mensaje}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}
