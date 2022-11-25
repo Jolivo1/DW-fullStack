@@ -1,26 +1,43 @@
 {% extends 'layout.html'%}
 {% block body %}
 
-    <h3>Registro</h3>
 
-    <form action="/crear" method="POST">
-
-        <label for="">Nombre</label>
-        <input type="text" name="nombre" >
-        <label for="">Primer Apellido</label>
-        <input type="text" name="pApellido" >
-        <label for="">Segundo Apellido</label>
-        <input type="text" name="sApellido" >
-        <label for="">Codigo</label>
-        <input type="text" name="codigo" >
-        <label for="">Telefono</label>
-        <input type="text" name="telefono" >
-        <label for="">Fecha de Nacimiento</label>
-        <input type="date" name="fechaNac">
-
-        <input type="submit" name="aceptar" value="Registrar">
-    </form>
-
+    <div class="row">
+        <div class="col-12">
+            <form class="row g-3" method="POST" action="/crear">
+                <div class="col-12 ">
+                    <a class="text-decoration-none text-black" href="/"><i class="fa-solid fa-left-long"></i> Back</a>
+                </div>
+                <div class="col-md-12">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="pApellido" class="form-label">Primer Apellido</label>
+                    <input type="text" class="form-control" id="pApellido" name="pApellido"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="sApellido" class="form-label">Segundo Apellido</label>
+                    <input type="text" class="form-control" id="sApellido" name="sApellido"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="fechaNac" class="form-label">Fecha Naciminiento</label>
+                    <input type="date" class="form-control" id="fechaNac" name="fechaNac"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="codigo" class="form-label">Codigo</label>
+                    <input type="text" class="form-control" id="codigo" name="codigo"/>
+                </div>
+                <div class="col-md-12">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono"/>
+                </div>
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
     {% with mensajes = get_flashed_messages() %}
         {% if mensajes %}
             {% for mensaje in mensajes %}

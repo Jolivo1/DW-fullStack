@@ -1,37 +1,61 @@
 {% extends 'layout.html'%}
 {% block body %}
 
-<table class="table">
+{% if estudiantes[1] != 0 %}
+
+<div class="row">
+ 
+  <div class="col-12 text-end mb-4 d-flex justify-content-between">
+    <div>
+      <form class="d-flex" action="/filtrar" method="POST">
+        <input type="text" class="form-control" name="filtrar"> 
+        <button type="submit"><i class="fa-solid fa-filter"></i></button>
+      </form>
+    </div>
+    <a class="btn btn-primary" href="/new" role="button">Nueno estudiante</a>
+  </div>
+  <div class="col-12">
+<table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">Codigo</th>
-        <th scope="col">Telefono</th>
-        <th scope="col">Fecha Nacimiento</th>
-        <th scope="col">Options</th>
+        <th class="text-center" scope="col">Nombre</th>
+        <th class="text-center" scope="col">Apellido</th>
+        <th class="text-center" scope="col">Codigo</th>
+        <th class="text-center" scope="col">Telefono</th>
+        <th class="text-center" scope="col">Fecha Nacimiento</th>
+        <th class="text-center" scope="col">Options</th>
       </tr>
     </thead>
     <tbody>
-    {%for estudiante in estudiantes %}
+    {%for estudiante in estudiantes[0] %}
       <tr>
-        <td>{{estudiante.1}}</td>
-        <td>{{estudiante.3}}</td>
-        <td>{{estudiante.4}}</td>
-        <td>{{estudiante.5}}</td>
-        <td>{{estudiante.6}}</td>
-        <td><a href="/editar/{{estudiante.0}}">editar</a> <a href="/eliminar/{{estudiante.0}}">Eliminar</a></td>
+        <td class="text-center">{{estudiante.1}}</td>
+        <td class="text-center">{{estudiante.3}}</td>
+        <td class="text-center">{{estudiante.4}}</td>
+        <td class="text-center">{{estudiante.5}}</td>
+        <td class="text-center">{{estudiante.6}}</td>
+        <td class="text-center"><i class="fa-solid fa-pen-to-square text-warning"></i> <a class="text-warning text-decoration-none" href="/editar/{{estudiante.0}}">editar</a>   / <i class="fa-solid fa-trash text-danger"></i>    <a class="text-danger text-decoration-none" href="/eliminar/{{estudiante.0}}">Eliminar</a></td>
 
       </tr>
     {% endfor %}
     </tbody>
   </table>
 
-  {% with mensajes = get_flashed_messages() %}
-  {% if mensajes %}
-      {% for mensaje in mensajes %}
-          <p>{{mensaje}}</p>
-      {% endfor %}
-  {% endif %}
-  {% endwith %}
+  
+
+
+  </div>
+</div>
+
+{% endif %}
+{% if estudiantes[1] == 0 %}
+<h1 class="text-center "><a class="text-black" href="/new">Por favor Agregue un Estudiante</a></h1>
+{% endif %}
+{% with mensajes = get_flashed_messages() %}
+{% if mensajes %}
+    {% for mensaje in mensajes %}
+        <p>{{mensaje}}</p>
+    {% endfor %}
+{% endif %}
+{% endwith %}
 {% endblock %}

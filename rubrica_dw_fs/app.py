@@ -11,16 +11,13 @@ app.config["MYSQL_DB"]        = "estudiantes"
 
 mysql = MySQL(app)
 
-@app.route("/")
-def inicio():
-    return render_template("index.html")
 
-@app.route("/listado")
+@app.route("/")
 def listado():
     c = mysql.connection.cursor()
     c.execute('SELECT * FROM estudiantes')
     datos = c.fetchall()
-    return render_template("listado.html", estudiantes= datos)
+    return render_template("listado.html", estudiantes= [datos, len(datos)])
 
 
 @app.route("/new")
@@ -42,7 +39,7 @@ def crear():
         mysql.connection.commit()
 
         flash("Contacto Registrado")
-        return redirect(url_for("nuevo"))
+        return redirect(url_for("listado"))
 
 @app.route("/editar/<id>")
 def editar(id):
@@ -77,16 +74,16 @@ def eliminar(id):
     flash("Contacto Eliminado")
     return redirect(url_for("listado"))
 
-@app.route("/filtrar")
+@app.route("/filtrar", methods = ["POST"])
 def filtrar():
-    c = mysql.connection.cursor()
-    c.execute('DELETE FROM estudiantes WHERE EST_ID = %s ',(id))
-    mysql.connection.commit()
-    flash("Contacto Eliminado")
-    return redirect(url_for("listado"))
+    if request.method== "POST":
+        nombre = request.form["filtrar"]
+        print(nombre)
+        c = mysql.connection.cursor()
+        c.execute("SELECT * FROM estudiantes WHERE EST_NOMBRE LIKE '"+nombre+"%'")
+        mysql.connection.commit()
+        datos = c.fetchall()
+        return render_template("listado.html", estudiantes= datos)
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000)
-
-
-
